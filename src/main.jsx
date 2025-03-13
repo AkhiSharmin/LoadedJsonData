@@ -12,6 +12,7 @@ import Posts from "./components/Posts/Posts.jsx";
 import PostDetails from "./components/PostDetails/PostDetails.jsx";
 import Comments from "./components/Comments/Comments.jsx";
 import CommentDetail from "./components/CommentDetail/CommentDetail.jsx";
+import AllMeal from "./components/AllMeal/AllMeal.jsx";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,12 @@ const router = createBrowserRouter([
             `https://jsonplaceholder.typicode.com/comments/${params.commentId}`
           ),
         element: <CommentDetail></CommentDetail>,
+      },
+      {
+        path: "/allmeal",
+        loader: () =>
+          fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood"),
+        element: <AllMeal></AllMeal>,
       },
     ],
   },

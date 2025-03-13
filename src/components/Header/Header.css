@@ -17,3 +17,7 @@ nav a.active {
   font-size: 20px;
   font-weight: 700;
 }
+.imgWidth {
+  height: 200px;
+  width: 300px;
+}

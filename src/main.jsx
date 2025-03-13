@@ -13,6 +13,7 @@ import PostDetails from "./components/PostDetails/PostDetails.jsx";
 import Comments from "./components/Comments/Comments.jsx";
 import CommentDetail from "./components/CommentDetail/CommentDetail.jsx";
 import AllMeal from "./components/AllMeal/AllMeal.jsx";
+import MealDetail from "./components/MealDetail/MealDetail.jsx";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,14 @@ const router = createBrowserRouter([
         loader: () =>
           fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood"),
         element: <AllMeal></AllMeal>,
+      },
+      {
+        path: "/meal/:mealId",
+        loader: ({ params }) =>
+          fetch(
+            `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${params.mealId}`
+          ),
+        element: <MealDetail></MealDetail>,
       },
     ],
   },
